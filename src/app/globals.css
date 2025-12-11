@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
@@ -24,3 +27,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.reveal {
+opacity: 0;
+transform: translateY(24px);
+transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+.reveal.revealed {
+opacity: 1;
+transform: translateY(0);
+}
+
+
+/* hide scrollbar for carousel */
+.carousel-scroll::-webkit-scrollbar { display: none; }
+.carousel-scroll { -ms-overflow-style: none; scrollbar-width: none; }
