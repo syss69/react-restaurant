@@ -7,8 +7,8 @@ const Hero = () => {
                         <h1 className="text-3xl md:text-5xl font-extrabold mb-4">Bienvenue chez Mitaka</h1>
                         <p className="text-gray-600 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
                     <div className="flex gap-3">
-                        <button className="px-5 py-3 bg-black text-white rounded-md">Resercer une table</button>
-                        <button className="px-5 py-3 border border-gray-300 rounded-md">Menu</button>
+                        <button className="px-5 py-3 bg-black text-white rounded-md">Reserver une table</button>
+                        <a className="px-5 py-3 border border-gray-300 rounded-md" href="#menu">Menu</a>
                     </div>
                     </div>
                     <div className=""> {/* reveal */}

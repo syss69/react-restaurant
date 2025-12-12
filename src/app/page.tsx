@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Gallery from '../components/Gallery';
+import Menu from '../components/Menu';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <Hero/>
         <About/>
         <Gallery/>
+        <Menu/>
       </main>
       <Footer/>
     </div>
