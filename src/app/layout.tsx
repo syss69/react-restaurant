@@ -3,7 +3,7 @@ import React from 'react'
 
 
 export const metadata = {
-title: 'Restaurant — Demo',
+title: 'Mitaka',
 description: 'Demo site built with Next.js + TypeScript + Tailwind'
 }
 
