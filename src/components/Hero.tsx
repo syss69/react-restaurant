@@ -1,3 +1,6 @@
+import mitaka from "../assets/mitaka.png";
+import Image from "next/image";
+
 const Hero = () => {
     return (
         <section className="bg-gradient-to-b from-white to-gray-50">
@@ -12,7 +15,14 @@ const Hero = () => {
                     </div>
                     </div>
                     <div className=""> {/* reveal */}
-                    <div className="w-full h-64 md:h-80 rounded-2xl bg-brandPink" />
+                        <div className="relative w-full h-64 md:h-100 rounded-2xl border overflow-hidden">
+                            <Image
+                                src={mitaka}
+                                alt="Mitaka Restaurant"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
