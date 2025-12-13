@@ -1,5 +1,13 @@
+'use client'
 
-const Contact = () => {
+import dynamic from 'next/dynamic';
+
+//SSR off
+const Map = dynamic(() => import('./Map'), {
+  ssr: false,
+})
+
+const Info = () => {
 
     const days = ["Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
     const daysElements = days.map(day => 
@@ -21,9 +29,7 @@ const Contact = () => {
                 <p className="text-gray-600 mb-6">1234 Adresse Ville 99999</p>
                 <div className="grid md:grid-cols-2 gap-6">
                     <form className="p-6 bg-white rounded-lg shadow-sm">
-                        <div className="flex flex-col gap-3">
-                            
-                        </div>
+                        <Map lat={43.3066} lng={-0.403436} />
                     </form>
                     <div className="p-6 bg-white rounded-lg shadow-sm">
                         <h3 className="font-semibold mb-2">Horaire</h3>
@@ -43,4 +49,4 @@ const Contact = () => {
     )
 };
 
-export default Contact;
+export default Info;
