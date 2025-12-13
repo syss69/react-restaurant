@@ -21,7 +21,7 @@ const Map = ({ lat, lng }: MapProps) => {
     <div className="h-64 md:h-full w-full rounded-lg overflow-hidden">
       <MapContainer
         center={[lat, lng]}
-        zoom={15}
+        zoom={16}
         scrollWheelZoom={false}
         className="h-full w-full"
       >

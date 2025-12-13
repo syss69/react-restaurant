@@ -24,7 +24,7 @@ const Info = () => {
 
     return (
         <section id="contact" className="container mx-auto px-4 py-12">
-            <div className=""> {/*reveal */}
+            <div className="reveal"> {/*reveal */}
                 <h2 className="text-2xl font-bold mb-4">Nous vous attendons !</h2>
                 <p className="text-gray-600 mb-6">1234 Adresse Ville 99999</p>
                 <div className="grid md:grid-cols-2 gap-6">

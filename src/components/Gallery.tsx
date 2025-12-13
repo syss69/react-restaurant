@@ -11,7 +11,7 @@ const Gallery = () => {
 
     return (
         <section id="gallery" className="container mx-auto px-4 py-12">
-            <div className=""> {/*reveal */}
+            <div className="reveal"> {/*reveal */}
                 <h2 className="text-2xl font-bold mb-4">Galerie</h2>
                 <p className="text-gray-600 mb-6">Lorem ipsum dolor sit amet.</p>
                 <Carousel items={items}/>
