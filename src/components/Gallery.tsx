@@ -1,6 +1,5 @@
 import Carousel from './Carousel'
 
-
 const Gallery = () => {
     const items = new Array(9).fill(0).map((_,i) => (
         <div className="rounded-lg h-40 md:h-48 bg-red-200 flex items-end p-4">

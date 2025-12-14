@@ -1,18 +1,59 @@
+'use client'
+
+import { useState } from "react";
 
 const Header = () => {
-return (
-<header className="bg-white shadow-sm sticky top-0 z-30 w-full" >
-    <div className="container mx-auto px-4 py-3 flex justify-between">
-        <div className="text-xl font-semibold">Mitaka</div>
-        <nav className="hidden md:flex gap-6 text-sm">
-            <a href="#about" className="hover:text-red-700">À propos</a>
-            <a href="#menu" className="hover:text-red-700">Menu</a>
-            <a href="#gallery" className="hover:text-red-700">Galerie</a>
-            <a href="#contact" className="hover:text-red-700">Contact</a>
-        </nav>
-        <button className="md:hidden p-2 rounded bg-brandPink">Menu</button>
-    </div>
-</header>
-)
+    const [open, setOpen] = useState(false);
+
+    const closeMenu = () => {
+        setOpen(false)
+    };
+
+    return (
+        <>
+        <header className="bg-white shadow-sm sticky top-0 z-30 w-full" >
+            <div className="container mx-auto px-4 py-3 flex justify-between">
+                <div className="text-xl font-semibold">Mitaka</div>
+                <nav className="hidden md:flex gap-6 text-sm">
+                    <a href="#about" className="hover:text-red-700">À propos</a>
+                    <a href="#menu" className="hover:text-red-700">Menu</a>
+                    <a href="#gallery" className="hover:text-red-700">Galerie</a>
+                    <a href="#contact" className="hover:text-red-700">Contact</a>
+                </nav>
+                <button
+                    onClick={() => setOpen(true)}
+                    className="md:hidden p-2 rounded bg-brandPink"
+                >
+                    Menu
+                </button>
+            </div>
+        </header>
+        {open && (
+            <div className="fixed inset-0 z-40 md:hidden">
+
+            <div
+                className="absolute inset-0 bg-black/40"
+                onClick={closeMenu}
+            />
+
+            <div className="absolute top-0 right-0 w-3/4 max-w-xs h-full bg-white shadow-lg p-6 flex flex-col gap-6 animate-slide-in">
+                <button
+                onClick={closeMenu}
+                className="self-end text-sm text-gray-500"
+                >
+                ✕
+                </button>
+
+                <nav className="flex flex-col gap-4 text-lg">
+                <a href="#about" onClick={closeMenu} className="hover:text-red-700">À propos</a>
+                <a href="#menu" onClick={closeMenu} className="hover:text-red-700">Menu</a>
+                <a href="#gallery" onClick={closeMenu} className="hover:text-red-700">Galerie</a>
+                <a href="#contact" onClick={closeMenu} className="hover:text-red-700">Contact</a>
+                </nav>
+            </div>
+            </div>
+        )}
+        </>
+    )
 }
 export default Header;
