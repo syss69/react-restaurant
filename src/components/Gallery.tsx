@@ -6,12 +6,13 @@ import { images } from '../lib/images';
 type GalleryItem = {id: number; name: string; photo: string}
 
 type GalleryProps = {
+    id: string
     title: string
     description?: string
     items: GalleryItem[]
 }
 
-const Gallery = ({title, description, items} : GalleryProps) => {
+const Gallery = ({id, title, description, items} : GalleryProps) => {
     
     const slides = items.map((item) => (
         <div
@@ -32,8 +33,8 @@ const Gallery = ({title, description, items} : GalleryProps) => {
 
     return (
         <section className="container mx-auto px-4 py-12">
-            <div className="reveal">
-                <h2 className="text-2xl font-bold mb-4">{title}</h2>
+            <div className="reveal" id={id}>
+                <h2 className="text-2xl font-bold mb-4 font-serif">{title}</h2>
 
                 {description && (
                 <p className="text-gray-600 mb-6">{description}</p>
