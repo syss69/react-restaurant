@@ -9,21 +9,11 @@ import Menu from '../components/Menu';
 import Info from '../components/Info';
 import useReveal from '../hooks/useReveal';
 
-import cocktailExample from "../assets/cocktail-example.jpg"
+import menu from "../data/menu.json";
 
 export default function Home() {
   useReveal('.reveal')
 
-  const exDrinksGallery = [
-    {id: 1, name: "Cocktail 1", photo: cocktailExample},
-    {id: 2, name: "Cocktail 2", photo: cocktailExample},
-    {id: 3, name: "Cocktail 3", photo: cocktailExample},
-    {id: 4, name: "Cocktail 4", photo: cocktailExample},
-    {id: 5, name: "Cocktail 5", photo: cocktailExample},
-    {id: 6, name: "Cocktail 6", photo: cocktailExample},
-    {id: 7, name: "Cocktail 7", photo: cocktailExample},
-    {id: 8, name: "Cocktail 8", photo: cocktailExample},
-  ]
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
@@ -32,7 +22,9 @@ export default function Home() {
         <Hero/>
         <About/>
         <Menu/>
-        <Gallery title="Cocktailes" description="Decouvrez nos cocktailes" items={exDrinksGallery}/>
+        <Gallery id="sushi" title="Sushis" description="Decouvrez nos sushis" items={menu.sushi}/>
+        <Gallery id="dishes" title="Plats chauds" description="Decouvrez nos plats chauds" items={menu.dishes}/>
+        <Gallery id="cocktails" title="Cocktailes" description="Decouvrez nos cocktailes" items={menu.drinks}/>
         <Info/>
       </main>
       <Footer/>

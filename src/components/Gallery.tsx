@@ -1,8 +1,9 @@
 import Carousel from './Carousel'
 import { StaticImageData } from "next/image";
 import Image from 'next/image'
+import { images } from '../lib/images';
 
-type GalleryItem = {id: number; name: string; photo: string|StaticImageData}
+type GalleryItem = {id: number; name: string; photo: string}
 
 type GalleryProps = {
     title: string
@@ -17,7 +18,7 @@ const Gallery = ({title, description, items} : GalleryProps) => {
             key={item.id}
             className="relative rounded-lg h-40 md:h-48 bg-red-200 overflow-hidden">
                 <Image
-                src={item.photo}
+                src={images[item.photo]}
                 alt={item.name}
                 fill
                 className="object-cover"
