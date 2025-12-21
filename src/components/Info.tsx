@@ -23,7 +23,7 @@ const Info = () => {
     );  
 
     return (
-        <section id="contact" className="container mx-auto px-4 py-12">
+        <section id="info" className="container mx-auto px-4 py-12">
             <div className="reveal"> {/*reveal */}
                 <h2 className="text-2xl font-bold mb-4">Nous vous attendons !</h2>
                 <p className="text-gray-600 mb-6">1234 Adresse Ville 99999</p>
@@ -43,6 +43,14 @@ const Info = () => {
                             {daysElements}
                         </ul>
                     </div>
+                </div>
+                <div className="p-6 bg-white rounded-lg shadow-sm flex flex-col items-center">
+                    <a
+                    href="tel:+33123456789"
+                    className="px-5 py-3 bg-black text-white rounded-md"
+                    >
+                    📞 +33 1 23 45 67 89
+                    </a>
                 </div>
             </div>
         </section>
