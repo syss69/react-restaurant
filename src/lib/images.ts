@@ -1,11 +1,13 @@
 import hotdish from "../assets/hotdish.jpg"
 import cocktail from "../assets/cocktail-example.jpg"
 import sushi from "../assets/exampleImage.png"
+import maki from "../assets/maki.jpg"
 
 import { StaticImageData } from "next/image"
 
 export const images: Record<string, StaticImageData> = {
     'hotdish.jpg': hotdish,
     'cocktail.jpg': cocktail,
-    'sushi.png': sushi
+    'sushi.png': sushi,
+    'maki.png': maki
 }

@@ -18,11 +18,11 @@ const Header = () => {
                     <a href="#about" className="hover:text-red-700">À propos</a>
                     <a href="#menu" className="hover:text-red-700">Menu</a>
                     <a href="#gallery" className="hover:text-red-700">Galerie</a>
-                    <a href="#contact" className="hover:text-red-700">Contact</a>
+                    <a href="#info" className="hover:text-red-700">Contact</a>
                 </nav>
                 <button
                     onClick={() => setOpen(true)}
-                    className="md:hidden p-2 rounded bg-brandPink"
+                    className="md:hidden hover:text-red-700 p-2 rounded font-serif"
                 >
                     Menu
                 </button>

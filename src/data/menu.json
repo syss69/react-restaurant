@@ -31,5 +31,16 @@
         {"id": 7, "name": "Sushi 7", "photo": "sushi.png"},
         {"id": 8, "name": "Sushi 8", "photo": "sushi.png"},
         {"id": 9, "name": "Sushi 9", "photo": "sushi.png"}
+    ],
+    "maki": [
+        {"id": 1, "name": "Maki 1", "photo": "maki.png"},
+        {"id": 2, "name": "Maki 2", "photo": "maki.png"},
+        {"id": 3, "name": "Maki 3", "photo": "maki.png"},
+        {"id": 4, "name": "Maki 4", "photo": "maki.png"},
+        {"id": 5, "name": "Maki 5", "photo": "maki.png"},
+        {"id": 6, "name": "Maki 6", "photo": "maki.png"},
+        {"id": 7, "name": "Maki 7", "photo": "maki.png"},
+        {"id": 8, "name": "Maki 8", "photo": "maki.png"},
+        {"id": 9, "name": "Maki 9", "photo": "maki.png"}
     ]
 }
