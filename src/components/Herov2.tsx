@@ -1,18 +1,45 @@
+'use client'
+
 import Image from "next/image";
+import { useEffect, useState } from 'react'
 import mitakaEntr from "../assets/mitaka2.jpg"
+import mitakaCabane from "../assets/mitaka-cabane.jpg"
+import mitakaTable from "../assets/mitaka-table.jpg"
+import mitaka3 from "../assets/mitaka3.jpg"
 
 const Hero2 = () => {
+    const [current, setCurrent] = useState(0);
+
+    const images = [mitakaEntr, mitakaCabane, mitakaTable, mitaka3]
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % 4)
+        }, 5000)
+
+        return () => clearInterval(timer)
+    }, [4, 5000])
+
     return (
     <section className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden">
       {/* Background image */}
-      <Image
-        src={mitakaEntr}
-        alt="Restaurant ambiance"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
+      {images.map((img, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            index === current ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <Image
+            src={img}
+            alt={`Hero image ${index + 1}`}
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      ))}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40" />
@@ -42,6 +69,18 @@ const Hero2 = () => {
             </a>
           </div>
         </div>
+      </div>
+      {/* Navigation dots */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-2.5 h-2.5 rounded-full transition ${
+              i === current ? 'bg-white' : 'bg-white/40'
+            }`}
+          />
+        ))}
       </div>
     </section>
   )
