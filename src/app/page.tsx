@@ -7,6 +7,7 @@ import About from '../components/About';
 import Gallery from '../components/Gallery';
 import Menu from '../components/Menu';
 import Info from '../components/Info';
+import Price from '../components/Price';
 import useReveal from '../hooks/useReveal';
 
 import Hero2 from '../components/Herov2';
@@ -29,6 +30,7 @@ export default function Home() {
         <Gallery id="maki" title="Maki" description="Decouvrez nos maki" items={menu.maki}/>
         <Gallery id="dishes" title="Plats chauds" description="Decouvrez nos plats chauds" items={menu.dishes}/>
         <Gallery id="cocktails" title="Cocktailes" description="Decouvrez nos cocktailes" items={menu.drinks}/>
+        <Price/>
         <Info/>
       </main>
       <Footer/>
