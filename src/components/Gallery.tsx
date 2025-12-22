@@ -1,5 +1,4 @@
 import Carousel from './Carousel'
-import { StaticImageData } from "next/image";
 import Image from 'next/image'
 import { images } from '../lib/images';
 
