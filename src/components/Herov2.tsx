@@ -59,7 +59,7 @@ const Hero2 = () => {
               href="#menu"
               className="px-6 py-3 bg-white text-black rounded-md"
             >
-              Voir le menu
+              Voir les plats
             </a>
             <a
               href="#info"

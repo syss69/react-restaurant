@@ -26,7 +26,7 @@ const Info = () => {
         <section id="info" className="container mx-auto px-4 py-12">
             <div className="reveal"> {/*reveal */}
                 <h2 className="text-2xl font-bold mb-4 font-serif">Nous vous attendons !</h2>
-                <p className="text-gray-600 mb-6">1234 Adresse Ville 99999</p>
+                <p className="text-gray-600 mb-6">2 Bd Charles de Gaulle, 64140 Lons</p>
                 <div className="grid md:grid-cols-2 gap-6">
                     <form className="p-6 bg-white rounded-lg shadow-sm">
                         <Map lat={43.3066} lng={-0.403436} />

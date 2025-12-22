@@ -8,6 +8,8 @@ import Gallery from '../components/Gallery';
 import Menu from '../components/Menu';
 import Info from '../components/Info';
 import Price from '../components/Price';
+import Wine from '../components/Wine';
+
 import useReveal from '../hooks/useReveal';
 
 import Hero2 from '../components/Herov2';
@@ -22,10 +24,11 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50 text-gray-800">
       <Header />
       <main>
-        {/* <Hero/> */}
         <Hero2/>
+        {/* <Hero/> */}
         <About/>
         <Menu/>
+        <Wine/>
         <Gallery id="sushi" title="Sushis" description="Decouvrez nos sushis" items={menu.sushi}/>
         <Gallery id="maki" title="Maki" description="Decouvrez nos maki" items={menu.maki}/>
         <Gallery id="dishes" title="Plats chauds" description="Decouvrez nos plats chauds" items={menu.dishes}/>
