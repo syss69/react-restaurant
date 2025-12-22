@@ -9,6 +9,7 @@ import Menu from '../components/Menu';
 import Info from '../components/Info';
 import Price from '../components/Price';
 import Wine from '../components/Wine';
+import Interior from '../components/Interior';
 
 import useReveal from '../hooks/useReveal';
 
@@ -26,8 +27,9 @@ export default function Home() {
       <main>
         <Hero2/>
         {/* <Hero/> */}
+        <Interior/>
         <About/>
-        <Menu/>
+        {/* <Menu/> */}
         <Wine/>
         <Gallery id="sushi" title="Sushis" description="Decouvrez nos sushis" items={menu.sushi}/>
         <Gallery id="maki" title="Maki" description="Decouvrez nos maki" items={menu.maki}/>

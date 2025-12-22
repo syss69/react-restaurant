@@ -1,0 +1,20 @@
+{
+    "2pers": {
+        "description": "Idéal pour un couple",
+        "image":"2pers.jpg",
+        "imageAlt": "Table pour 2 personnes",
+        "imagePosition": "left"
+    },
+    "6pers": {
+        "description": "Pour rencontrer la famille",
+        "image":"6pers.jpg",
+        "imageAlt": "Table pour 6 personnes",
+        "imagePosition": "right"
+    },
+    "12pers": {
+        "description": "Ou pour un grand groupe d'amis",
+        "image":"12pers.jpg",
+        "imageAlt": "Table pour 12 personnes",
+        "imagePosition": "left"
+    }  
+}
