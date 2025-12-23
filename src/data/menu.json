@@ -1,0 +1,46 @@
+{
+    "drinks": [
+        {"id": 1, "name": "Cocktail 1", "photo": "cocktail.jpg"},
+        {"id": 2, "name": "Cocktail 2", "photo": "cocktail.jpg"},
+        {"id": 3, "name": "Cocktail 3", "photo": "cocktail.jpg"},
+        {"id": 4, "name": "Cocktail 4", "photo": "cocktail.jpg"},
+        {"id": 5, "name": "Cocktail 5", "photo": "cocktail.jpg"},
+        {"id": 6, "name": "Cocktail 6", "photo": "cocktail.jpg"},
+        {"id": 7, "name": "Cocktail 7", "photo": "cocktail.jpg"},
+        {"id": 8, "name": "Cocktail 8", "photo": "cocktail.jpg"},
+        {"id": 9, "name": "Cocktail 9", "photo": "cocktail.jpg"}
+    ],
+    "dishes": [
+        {"id": 1, "name": "Plat Chaud 1", "photo": "hotdish.jpg"},
+        {"id": 2, "name": "Plat Chaud 2", "photo": "hotdish.jpg"},
+        {"id": 3, "name": "Plat Chaud 3", "photo": "hotdish.jpg"},
+        {"id": 4, "name": "Plat Chaud 4", "photo": "hotdish.jpg"},
+        {"id": 5, "name": "Plat Chaud 5", "photo": "hotdish.jpg"},
+        {"id": 6, "name": "Plat Chaud 6", "photo": "hotdish.jpg"},
+        {"id": 7, "name": "Plat Chaud 7", "photo": "hotdish.jpg"},
+        {"id": 8, "name": "Plat Chaud 8", "photo": "hotdish.jpg"},
+        {"id": 9, "name": "Plat Chaud 9", "photo": "hotdish.jpg"}
+    ],
+    "sushi": [
+        {"id": 1, "name": "Sushi 1", "photo": "sushi.png"},
+        {"id": 2, "name": "Sushi 2", "photo": "sushi.png"},
+        {"id": 3, "name": "Sushi 3", "photo": "sushi.png"},
+        {"id": 4, "name": "Sushi 4", "photo": "sushi.png"},
+        {"id": 5, "name": "Sushi 5", "photo": "sushi.png"},
+        {"id": 6, "name": "Sushi 6", "photo": "sushi.png"},
+        {"id": 7, "name": "Sushi 7", "photo": "sushi.png"},
+        {"id": 8, "name": "Sushi 8", "photo": "sushi.png"},
+        {"id": 9, "name": "Sushi 9", "photo": "sushi.png"}
+    ],
+    "maki": [
+        {"id": 1, "name": "Maki 1", "photo": "maki.png"},
+        {"id": 2, "name": "Maki 2", "photo": "maki.png"},
+        {"id": 3, "name": "Maki 3", "photo": "maki.png"},
+        {"id": 4, "name": "Maki 4", "photo": "maki.png"},
+        {"id": 5, "name": "Maki 5", "photo": "maki.png"},
+        {"id": 6, "name": "Maki 6", "photo": "maki.png"},
+        {"id": 7, "name": "Maki 7", "photo": "maki.png"},
+        {"id": 8, "name": "Maki 8", "photo": "maki.png"},
+        {"id": 9, "name": "Maki 9", "photo": "maki.png"}
+    ]
+}
