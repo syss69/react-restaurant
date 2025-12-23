@@ -21,7 +21,7 @@ const Hero2 = () => {
     }, [4, 5000])
 
     return (
-    <section className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden">
+    <section id="hero" className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden">
       {/* Background image */}
       {images.map((img, index) => (
         <div

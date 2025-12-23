@@ -15,9 +15,10 @@ const Header = () => {
             <div className="container mx-auto px-4 py-3 flex justify-between">
                 <div className="text-xl font-semibold font-serif">Mitaka</div>
                 <nav className="hidden md:flex gap-6 text-sm">
-                    <a href="#about" className="hover:text-red-700">À propos</a>
+                    <a href="#hero" className="hover:text-red-700">Mitaka</a>
+                    <a href="#tables" className="hover:text-red-700">Nos tables</a>
                     <a href="#menu" className="hover:text-red-700">Menu</a>
-                    <a href="#gallery" className="hover:text-red-700">Galerie</a>
+                    <a href="#price" className="hover:text-red-700">Prix</a>
                     <a href="#info" className="hover:text-red-700">Contact</a>
                 </nav>
                 <button
@@ -45,10 +46,11 @@ const Header = () => {
                 </button>
 
                 <nav className="flex flex-col gap-4 text-lg">
-                <a href="#about" onClick={closeMenu} className="hover:text-red-700">À propos</a>
+                <a href="#hero" onClick={closeMenu} className="hover:text-red-700">Mitaka</a>
+                <a href="#tables" onClick={closeMenu} className="hover:text-red-700">Nos tables</a>
                 <a href="#menu" onClick={closeMenu} className="hover:text-red-700">Menu</a>
-                <a href="#gallery" onClick={closeMenu} className="hover:text-red-700">Galerie</a>
-                <a href="#contact" onClick={closeMenu} className="hover:text-red-700">Contact</a>
+                <a href="#price" onClick={closeMenu} className="hover:text-red-700">Prix</a>
+                <a href="#info" onClick={closeMenu} className="hover:text-red-700">Contact</a>
                 </nav>
             </div>
             </div>

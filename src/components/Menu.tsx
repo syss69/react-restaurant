@@ -1,45 +1,61 @@
-'use client'
+import Image from 'next/image'
+import maki from "../assets/maki.jpg"
+import dish from "../assets/hotdish.jpg"
+import sushi from "../assets/exampleImage.png"
 
-import { StaticImageData } from "next/image";
-import exampleImage from "../assets/exampleImage.png";
-import Image  from "next/image";
-
-type Meal = { title: string; description: string; photo: string|StaticImageData }
-
-
-const Menu =() => {
-    const meals: Meal[] = new Array(6).fill(0).map((_,i)=>({
-        title: `Plat ${i+1}`,
-        description: `Lorem ipsum dolor sit amet.`,
-        photo: exampleImage
-    }))
-
-
+const Menu = () => {
     return (
         <section id="menu" className="container mx-auto px-4 py-12">
             <div className="reveal"> {/* reveal */}
-                <h2 className="text-2xl font-bold mb-4 font-serif">Nos specialites</h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {meals.map((m,idx)=> (
-                    <div key={idx} className="rounded-xl p-6 bg-white shadow-sm">
-                        <div className="relative h-36 rounded-md overflow-hidden mb-4">
-                            <Image
-                                src={m.photo}
-                                alt={m.description}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <h3 className="font-semibold">{m.title}</h3>
-                        </div>
-                        <p className="text-sm text-gray-500 mt-2">{m.description}</p>
+                <h2 className="text-2xl font-bold mb-4 font-serif">Notre cuisine</h2>
+                <p className="text-gray-600 mb-6">Explorez le monde de la cuisine asiatique : sushis, makis, sashimis, plats chauds</p>
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <a href="#sushi">    
+                            <div className="rounded-xl p-6 bg-white shadow-sm">
+                                <div className="h-36 rounded-md mb-4 relative overflow-hidden">
+                                    <Image 
+                                        src={sushi}
+                                        alt="Maki"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <h3 className="font-semibold mb-2">Sushi</h3>
+                                <p className="text-sm text-gray-500">Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </a>
+                        <a href="#maki">
+                            <div className="rounded-xl p-6 bg-white shadow-sm">
+                                <div className="h-36 rounded-md mb-4 relative overflow-hidden">
+                                    <Image 
+                                        src={maki}
+                                        alt="Maki"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <h3 className="font-semibold mb-2">Maki</h3>
+                                <p className="text-sm text-gray-500">Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </a>
+                        <a href="#dishes">
+                            <div className="rounded-xl p-6 bg-white shadow-sm">
+                                <div className="h-36 rounded-md mb-4 relative overflow-hidden">
+                                    <Image 
+                                        src={dish}
+                                        alt="Maki"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <h3 className="font-semibold mb-2">Plats chaudes</h3>
+                                <p className="text-sm text-gray-500">Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        </a>
                     </div>
-                    ))}
-                </div>
             </div>
         </section>
-    )
+        )
 };
 
 export default Menu;

@@ -1,18 +1,21 @@
 {
     "2pers": {
-        "description": "Idéal pour un couple",
+        "title": "Idéal pour un couple",
+        "description": "Tables pour deux personnes",
         "image":"2pers.jpg",
         "imageAlt": "Table pour 2 personnes",
         "imagePosition": "left"
     },
     "6pers": {
-        "description": "Pour rencontrer la famille",
+        "title": "Pour rencontrer la famille",
+        "description": "Tables pour 3 à 6 personnes",
         "image":"6pers.jpg",
         "imageAlt": "Table pour 6 personnes",
         "imagePosition": "right"
     },
     "12pers": {
-        "description": "Ou pour un grand groupe d'amis",
+        "title": "Ou pour un grand groupe d'amis",
+        "description": "Tables pour 8 à 14 personnes",
         "image":"12pers.jpg",
         "imageAlt": "Table pour 12 personnes",
         "imagePosition": "left"

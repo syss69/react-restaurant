@@ -2,13 +2,14 @@ import Image, { StaticImageData } from 'next/image';
 
 
 type InteriorProps = {
+    title: string
     description: string
     image: StaticImageData
     imageAlt: string
     imagePosition: string
 }
     
-    const ImageTextSection = ({description, image, imageAlt, imagePosition}: InteriorProps) => {
+    const ImageTextSection = ({title, description, image, imageAlt, imagePosition}: InteriorProps) => {
           return (
             <section className="bg-gradient-to-b from-white to-gray-50">
             <div className="container mx-auto px-4 py-12 md:py-20">
@@ -16,8 +17,11 @@ type InteriorProps = {
                 {/* Text */}
                 <div className={`reveal ${imagePosition === 'left' ? 'md:order-2' : ''}`}>
                   <h2 className="text-3xl md:text-5xl font-extrabold mb-4 font-serif">
-                    {description}
+                    {title}
                   </h2>
+                  <p className="text-gray-600">
+                    {description}
+                  </p>
                 </div>
 
                 {/* Image */}
