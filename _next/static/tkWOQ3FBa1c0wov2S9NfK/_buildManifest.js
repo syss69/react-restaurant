@@ -1,7 +1,12 @@
 self.__BUILD_MANIFEST = {
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [],
+    "beforeFiles": [
+      {
+        "source": "/react-restaurant//_next/:path+",
+        "destination": "/react-restaurant/_next/:path+"
+      }
+    ],
     "fallback": []
   },
   "sortedPages": [
