@@ -62,7 +62,7 @@ const Hero2 = () => {
               Voir les plats
             </a>
             <a
-              href="#info"
+              href="#call"
               className="px-6 py-3 border border-white/80 rounded-md"
             >
               Reserver

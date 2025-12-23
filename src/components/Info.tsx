@@ -44,7 +44,7 @@ const Info = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="p-6 bg-white rounded-lg shadow-sm flex flex-col items-center">
+                <div className="p-6 bg-white rounded-lg shadow-sm flex flex-col items-center" id="call">
                     <a
                     href="tel:+33123456789"
                     className="px-5 py-3 bg-black text-white rounded-md"
