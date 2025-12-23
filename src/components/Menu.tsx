@@ -15,7 +15,7 @@ const Menu = () => {
                                 <div className="h-36 rounded-md mb-4 relative overflow-hidden">
                                     <Image 
                                         src={sushi}
-                                        alt="Maki"
+                                        alt="Sushi"
                                         fill
                                         className="object-cover"
                                     />
@@ -43,7 +43,7 @@ const Menu = () => {
                                 <div className="h-36 rounded-md mb-4 relative overflow-hidden">
                                     <Image 
                                         src={dish}
-                                        alt="Maki"
+                                        alt="Plats chaudes"
                                         fill
                                         className="object-cover"
                                     />
