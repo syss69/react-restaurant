@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from "react";
+import Link from "next/link";
 
 const Header = () => {
     const [open, setOpen] = useState(false);
@@ -15,11 +16,12 @@ const Header = () => {
             <div className="container mx-auto px-4 py-3 flex justify-between">
                 <div className="text-xl font-semibold font-serif">Mitaka</div>
                 <nav className="hidden md:flex gap-6 text-sm">
-                    <a href="#hero" className="hover:text-red-700">Mitaka</a>
-                    <a href="#tables" className="hover:text-red-700">Nos tables</a>
-                    <a href="#menu" className="hover:text-red-700">Menu</a>
-                    <a href="#price" className="hover:text-red-700">Prix</a>
-                    <a href="#info" className="hover:text-red-700">Contact</a>
+                    <Link href="/" className="hover:text-red-700">Mitaka</Link>
+                    <Link href="/concept" className="hover:text-red-700">Concept</Link>
+                    <Link href="/menu" className="hover:text-red-700">Carte</Link>
+                    <Link href="/menu" className="hover:text-red-700">Actualites</Link>
+                    <Link href="/menu" className="hover:text-red-700">Reservation</Link>
+                    <Link href="/menu" className="hover:text-red-700">Contact</Link>
                 </nav>
                 <button
                     onClick={() => setOpen(true)}
