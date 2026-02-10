@@ -1,34 +1,44 @@
 'use client'
 
-import ImageTextSection from "@/src/components/ImageTextSection"
 import useReveal from "@/src/hooks/useReveal"
-import orderTab from "@/src/assets/order-tab.jpg"
 
-export default function Concept () {
+export default function ActualitesPage() {
     useReveal('.reveal')
 
-    return(
-        <ImageTextSection 
-            title = "Notre Concept"
-            description="Chez Mitaka, nous avons repensé l’expérience du buffet asiatique.
-Ici, il ne s’agit pas simplement de se lever et de se servir —
-nous vous invitons à vivre une expérience conviviale et moderne, directement à table.
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <div className="container mx-auto px-4 py-16">
 
-Grâce à nos tablettes, vous pouvez passer vos commandes sans quitter votre place.
-Les saveurs d’Asie viennent à vous, préparées à la demande et servies directement à votre table.
+        {/* Header */}
+        <div className="max-w-3xl reveal">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 font-serif">
+            Actualités
+          </h1>
 
-Ce concept « à volonté » nous permet de vous offrir :
+          <p className="text-gray-600 mb-10">
+            Ici apparaîtront les nouvelles et événements de notre restaurant.
+          </p>
+        </div>
 
-une cuisine fraîche et variée,
+        {/* Placeholder block */}
+        <div className="reveal">
+          <div className="rounded-2xl border border-dashed border-gray-300 bg-white p-10 text-center">
 
-un service fluide et confortable,
+            <div className="mx-auto w-16 h-16 rounded-xl bg-brandPink mb-6" />
 
-et un moment de partage, sans attente ni déplacements inutiles.
+            <h2 className="text-xl font-semibold mb-3">
+              Section en préparation
+            </h2>
 
-Chez Mitaka, l’Asie s’invite à votre table."
-            image = {orderTab}
-            imageAlt="Tablette pour faire vos commandes"
-            imagePosition="left"
-        />
-    )
+            <p className="text-gray-500 max-w-xl mx-auto">
+              Cette page accueillera bientôt nos actualités, nouveaux menus,
+              événements spéciaux et annonces du restaurant.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  );
 }
