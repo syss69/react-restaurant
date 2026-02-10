@@ -1,7 +1,5 @@
 'use client'
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Menu from '../components/Menu';
 import Gallery from '../components/Gallery';
 import Info from '../components/Info';
@@ -20,8 +18,6 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
-      <Header />
       <main>
         <Hero2/>
         <Interior/>
@@ -34,7 +30,5 @@ export default function Home() {
         <Price/>
         <Info/>
       </main>
-      <Footer/>
-    </div>
   );
 }

@@ -1,5 +1,7 @@
 import './globals.css'
 import 'leaflet/dist/leaflet.css'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import React from 'react'
 import { Inter } from 'next/font/google'
 import { Playfair_Display } from 'next/font/google'
@@ -26,7 +28,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
   return (
     <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans">
-        {children}
+          <div className="min-h-screen bg-gray-50 text-gray-800">
+            <Header />
+            {children}
+            <Footer />
+          </div>
       </body>
     </html>
   )
