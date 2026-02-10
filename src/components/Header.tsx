@@ -48,11 +48,12 @@ const Header = () => {
                 </button>
 
                 <nav className="flex flex-col gap-4 text-lg">
-                <a href="#hero" onClick={closeMenu} className="hover:text-red-700">Mitaka</a>
-                <a href="#tables" onClick={closeMenu} className="hover:text-red-700">Nos tables</a>
-                <a href="#menu" onClick={closeMenu} className="hover:text-red-700">Menu</a>
-                <a href="#price" onClick={closeMenu} className="hover:text-red-700">Prix</a>
-                <a href="#info" onClick={closeMenu} className="hover:text-red-700">Contact</a>
+                    <Link href="/" onClick={closeMenu} className="hover:text-red-700">Mitaka</Link>
+                    <Link href="/concept" onClick={closeMenu} className="hover:text-red-700">Concept</Link>
+                    <Link href="/menu" onClick={closeMenu} className="hover:text-red-700">Carte</Link>
+                    <Link href="/news" onClick={closeMenu} className="hover:text-red-700">Actualites</Link>
+                    <Link href="/reservation" onClick={closeMenu} className="hover:text-red-700">Reservation</Link>
+                    <Link href="/contact" onClick={closeMenu} className="hover:text-red-700">Contact</Link>
                 </nav>
             </div>
             </div>
