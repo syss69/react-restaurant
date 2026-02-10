@@ -19,9 +19,9 @@ const Header = () => {
                     <Link href="/" className="hover:text-red-700">Mitaka</Link>
                     <Link href="/concept" className="hover:text-red-700">Concept</Link>
                     <Link href="/menu" className="hover:text-red-700">Carte</Link>
-                    <Link href="/menu" className="hover:text-red-700">Actualites</Link>
-                    <Link href="/menu" className="hover:text-red-700">Reservation</Link>
-                    <Link href="/menu" className="hover:text-red-700">Contact</Link>
+                    <Link href="/news" className="hover:text-red-700">Actualites</Link>
+                    <Link href="/reservation" className="hover:text-red-700">Reservation</Link>
+                    <Link href="/contact" className="hover:text-red-700">Contact</Link>
                 </nav>
                 <button
                     onClick={() => setOpen(true)}
