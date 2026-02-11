@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from 'react'
+import Link from "next/link";
 import mitakaEntr from "../assets/mitaka2.jpg"
 import mitakaCabane from "../assets/mitaka-cabane.jpg"
 import mitakaTable from "../assets/mitaka-table.jpg"
@@ -55,18 +56,18 @@ const Hero2 = () => {
           </p>
 
           <div className="flex gap-3">
-            <a
-              href="#menu"
+            <Link
+              href="/menu"
               className="px-6 py-3 bg-white text-black rounded-md"
             >
               Voir les plats
-            </a>
-            <a
-              href="#call"
+            </Link>
+            <Link
+              href="/reservation"
               className="px-6 py-3 border border-white/80 rounded-md"
             >
               Reserver
-            </a>
+            </Link>
           </div>
         </div>
       </div>
