@@ -8,6 +8,9 @@ export default function Contact () {
     useReveal('.reveal')
 
     return(
-        <Info/>
+        <div className="min-h-[85vh]">
+            <Info/>
+        </div>
+
     )
 }

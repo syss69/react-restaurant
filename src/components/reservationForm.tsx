@@ -248,7 +248,7 @@ export default function ReservationForm() {
 // ---------- helpers UI ----------
 
 const inputCls =
-  "w-full border rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20";
+  "w-full border rounded-md px-4 py-3 appearance-none focus:outline-none focus:ring-2 focus:ring-black/20 ";
 
 
 function Field({

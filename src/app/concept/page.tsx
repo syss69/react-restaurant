@@ -8,7 +8,8 @@ export default function Concept () {
     useReveal('.reveal')
 
     return(
-        <ImageTextSection 
+        <div className="min-h-[85vh]">
+            <ImageTextSection 
             title = "Notre Concept"
             description="Chez Mitaka, nous avons repensé l’expérience du buffet asiatique.
 Ici, il ne s’agit pas simplement de se lever et de se servir —
@@ -30,5 +31,6 @@ Chez Mitaka, l’Asie s’invite à votre table."
             imageAlt="Tablette pour faire vos commandes"
             imagePosition="left"
         />
+        </div>
     )
 }
