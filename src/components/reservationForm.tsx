@@ -71,15 +71,42 @@ export default function ReservationForm() {
 
   const [slots, setSlots] = useState<string[]>([]);
   const [status, setStatus] = useState<"idle"|"sending"|"ok">("idle");
+  const [blockedDates, setBlockedDates] = useState<Set<string>>(new Set());
 
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/blocked-dates")
+      .then((r) => r.json())
+      .then((json: { dates?: unknown }) => {
+        if (cancelled) return;
+        const list = Array.isArray(json.dates)
+          ? json.dates.filter((d): d is string => typeof d === "string")
+          : [];
+        setBlockedDates(new Set(list));
+      })
+      .catch(() => {
+        if (!cancelled) setBlockedDates(new Set());
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const dateBlocked =
+    Boolean(data.date) && blockedDates.has(data.date);
 
   // ---------- обновление слотов при смене даты ----------
 
   useEffect(() => {
+    if (dateBlocked) {
+      setSlots([]);
+      setData((prev) => ({ ...prev, time: "" }));
+      return;
+    }
     const s = getSlotsForDate(data.date);
     setSlots(s);
-    setData(prev => ({ ...prev, time: "" }));
-  }, [data.date]);
+    setData((prev) => ({ ...prev, time: "" }));
+  }, [data.date, dateBlocked]);
 
 
   // ---------- обработчики ----------
@@ -98,6 +125,7 @@ export default function ReservationForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!data.date || blockedDates.has(data.date)) return;
     setStatus("sending");
 
     console.log("Reservation:", data);
@@ -182,11 +210,15 @@ export default function ReservationForm() {
             required
             value={data.time}
             onChange={handleChange}
-            disabled={!slots.length}
+            disabled={!slots.length || dateBlocked}
             className={inputCls}
           >
             <option value="">
-              {slots.length ? "Choisir l'heure" : "Fermé ce jour"}
+              {dateBlocked
+                ? "Indisponible"
+                : slots.length
+                  ? "Choisir l'heure"
+                  : "Fermé ce jour"}
             </option>
 
             {slots.map(t => (
@@ -196,6 +228,13 @@ export default function ReservationForm() {
         </Field>
 
       </div>
+
+      {dateBlocked && (
+        <p className="text-sm text-amber-800 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+          Ce jour n’est pas disponible à la réservation en ligne. Choisissez
+          une autre date ou contactez-nous par téléphone.
+        </p>
+      )}
 
 
       {/* Guests */}
@@ -227,7 +266,7 @@ export default function ReservationForm() {
 
       {/* Submit */}
       <button
-        disabled={status === "sending"}
+        disabled={status === "sending" || dateBlocked}
         className="w-full bg-black text-white py-3 rounded-md hover:opacity-90 transition disabled:opacity-50"
       >
         {status === "sending" ? "Envoi..." : "Réserver une table"}
