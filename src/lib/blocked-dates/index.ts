@@ -16,4 +16,14 @@ export async function setBlockedDates(dates: string[]): Promise<void> {
   return repo.setBlockedDates(dates);
 }
 
+export async function getReservationsGloballyDisabled(): Promise<boolean> {
+  return repo.getReservationsGloballyDisabled();
+}
+
+export async function setReservationsGloballyDisabled(
+  disabled: boolean
+): Promise<void> {
+  return repo.setReservationsGloballyDisabled(disabled);
+}
+
 export type { BlockedDatesRepository };

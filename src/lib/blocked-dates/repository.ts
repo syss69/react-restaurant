@@ -5,4 +5,6 @@
 export interface BlockedDatesRepository {
   getBlockedDates(): Promise<string[]>;
   setBlockedDates(dates: string[]): Promise<void>;
+  getReservationsGloballyDisabled(): Promise<boolean>;
+  setReservationsGloballyDisabled(disabled: boolean): Promise<void>;
 }

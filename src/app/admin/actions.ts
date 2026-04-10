@@ -8,7 +8,11 @@ import {
   signAdminSession,
   verifyAdminSession,
 } from "@/src/lib/admin/session";
-import { getBlockedDates, setBlockedDates } from "@/src/lib/blocked-dates";
+import {
+  getBlockedDates,
+  setBlockedDates,
+  setReservationsGloballyDisabled,
+} from "@/src/lib/blocked-dates";
 
 async function requireAdminSession() {
   const store = await cookies();
@@ -68,6 +72,17 @@ export async function removeBlockedDateAction(
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return;
   const current = await getBlockedDates();
   await setBlockedDates(current.filter((d) => d !== date));
+  revalidatePath("/admin/reservations");
+  revalidatePath("/reservation");
+}
+
+export async function setReservationsGloballyDisabledAction(
+  formData: FormData
+): Promise<void> {
+  await requireAdminSession();
+  const raw = String(formData.get("disabled") ?? "").trim().toLowerCase();
+  const disabled = raw === "true" || raw === "1" || raw === "on";
+  await setReservationsGloballyDisabled(disabled);
   revalidatePath("/admin/reservations");
   revalidatePath("/reservation");
 }
