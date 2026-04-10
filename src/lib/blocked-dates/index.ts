@@ -1,8 +1,13 @@
 import { FileBlockedDatesRepository } from "./file-repository";
 import type { BlockedDatesRepository } from "./repository";
+import { SupabaseBlockedDatesRepository } from "./supabase-repository";
 
 function getRepository(): BlockedDatesRepository {
-  // Quand Supabase sera branché : if (process.env.BLOCKED_DATES_BACKEND === 'supabase') return new SupabaseBlockedDatesRepository();
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+  if (url && serviceKey) {
+    return new SupabaseBlockedDatesRepository();
+  }
   return new FileBlockedDatesRepository();
 }
 
