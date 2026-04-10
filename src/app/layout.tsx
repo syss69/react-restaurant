@@ -1,8 +1,7 @@
-import './globals.css'
-import 'leaflet/dist/leaflet.css'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import React from 'react'
+import "./globals.css";
+import "leaflet/dist/leaflet.css";
+import React from "react";
+import SiteChrome from "@/src/components/SiteChrome";
 import { Inter } from 'next/font/google'
 import { Playfair_Display } from 'next/font/google'
 
@@ -28,13 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }){
   return (
     <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans">
-          <div className="min-h-screen bg-gray-50 text-gray-800">
-            <Header />
-            <main className="flex-1">
-              {children}
-            </main>
-            <Footer />
-          </div>
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   )

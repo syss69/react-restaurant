@@ -71,15 +71,49 @@ export default function ReservationForm() {
 
   const [slots, setSlots] = useState<string[]>([]);
   const [status, setStatus] = useState<"idle"|"sending"|"ok">("idle");
+  const [blockedDates, setBlockedDates] = useState<Set<string>>(new Set());
+  const [reservationsGloballyDisabled, setReservationsGloballyDisabled] =
+    useState(false);
 
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/blocked-dates")
+      .then((r) => r.json())
+      .then((json: { dates?: unknown; reservationsGloballyDisabled?: unknown }) => {
+        if (cancelled) return;
+        const list = Array.isArray(json.dates)
+          ? json.dates.filter((d): d is string => typeof d === "string")
+          : [];
+        setBlockedDates(new Set(list));
+        setReservationsGloballyDisabled(json.reservationsGloballyDisabled === true);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setBlockedDates(new Set());
+          setReservationsGloballyDisabled(false);
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const dateBlocked =
+    reservationsGloballyDisabled ||
+    (Boolean(data.date) && blockedDates.has(data.date));
 
   // ---------- обновление слотов при смене даты ----------
 
   useEffect(() => {
+    if (dateBlocked) {
+      setSlots([]);
+      setData((prev) => ({ ...prev, time: "" }));
+      return;
+    }
     const s = getSlotsForDate(data.date);
     setSlots(s);
-    setData(prev => ({ ...prev, time: "" }));
-  }, [data.date]);
+    setData((prev) => ({ ...prev, time: "" }));
+  }, [data.date, dateBlocked]);
 
 
   // ---------- обработчики ----------
@@ -98,6 +132,8 @@ export default function ReservationForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (reservationsGloballyDisabled) return;
+    if (!data.date || blockedDates.has(data.date)) return;
     setStatus("sending");
 
     console.log("Reservation:", data);
@@ -123,6 +159,13 @@ export default function ReservationForm() {
       className="bg-white rounded-2xl shadow-sm p-6 md:p-8 space-y-5"
     >
 
+      {reservationsGloballyDisabled && (
+        <p className="text-sm text-amber-900 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+          Les réservations en ligne sont momentanément fermées. Merci de nous
+          appeler pour toute demande de table.
+        </p>
+      )}
+
       {/* Name */}
       <Field label="Nom">
         <input
@@ -130,6 +173,7 @@ export default function ReservationForm() {
           required
           value={data.name}
           onChange={handleChange}
+          disabled={reservationsGloballyDisabled}
           className={inputCls}
         />
       </Field>
@@ -142,6 +186,7 @@ export default function ReservationForm() {
           required
           value={data.phone}
           onChange={handleChange}
+          disabled={reservationsGloballyDisabled}
           className={inputCls}
         />
       </Field>
@@ -155,6 +200,7 @@ export default function ReservationForm() {
           required
           value={data.email}
           onChange={handleChange}
+          disabled={reservationsGloballyDisabled}
           className={inputCls}
         />
       </Field>
@@ -171,6 +217,7 @@ export default function ReservationForm() {
             min={today}
             value={data.date}
             onChange={handleChange}
+            disabled={reservationsGloballyDisabled}
             className={inputCls}
           />
         </Field>
@@ -182,11 +229,19 @@ export default function ReservationForm() {
             required
             value={data.time}
             onChange={handleChange}
-            disabled={!slots.length}
+            disabled={
+              reservationsGloballyDisabled || !slots.length || dateBlocked
+            }
             className={inputCls}
           >
             <option value="">
-              {slots.length ? "Choisir l'heure" : "Fermé ce jour"}
+              {reservationsGloballyDisabled
+                ? "Indisponible"
+                : dateBlocked
+                ? "Indisponible"
+                : slots.length
+                  ? "Choisir l'heure"
+                  : "Fermé ce jour"}
             </option>
 
             {slots.map(t => (
@@ -197,6 +252,13 @@ export default function ReservationForm() {
 
       </div>
 
+      {dateBlocked && !reservationsGloballyDisabled && (
+        <p className="text-sm text-amber-800 bg-amber-50 border border-amber-200 rounded-lg px-4 py-3">
+          Ce jour n’est pas disponible à la réservation en ligne. Choisissez
+          une autre date ou contactez-nous par téléphone.
+        </p>
+      )}
+
 
       {/* Guests */}
       <Field label="Nombre de personnes">
@@ -204,6 +266,7 @@ export default function ReservationForm() {
           name="guests"
           value={data.guests}
           onChange={handleChange}
+          disabled={reservationsGloballyDisabled}
           className={inputCls}
         >
           {[1,2,3,4,5,6,7,8,9,10,12,15,20].map(n => (
@@ -220,6 +283,7 @@ export default function ReservationForm() {
           rows={3}
           value={data.comment}
           onChange={handleChange}
+          disabled={reservationsGloballyDisabled}
           className={inputCls}
         />
       </Field>
@@ -227,7 +291,9 @@ export default function ReservationForm() {
 
       {/* Submit */}
       <button
-        disabled={status === "sending"}
+        disabled={
+          status === "sending" || dateBlocked || reservationsGloballyDisabled
+        }
         className="w-full bg-black text-white py-3 rounded-md hover:opacity-90 transition disabled:opacity-50"
       >
         {status === "sending" ? "Envoi..." : "Réserver une table"}
